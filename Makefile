@@ -1,12 +1,13 @@
 VENDORNAME=returnnull
 PROJECTNAME=hellogba
 CONTAINERNAME=devkitpro
-COMPOSE=CONTAINERNAME=$(CONTAINERNAME) PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME) docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose.yml
+USER=$USER
+COMPOSE=USER=$(USER) CONTAINERNAME=$(CONTAINERNAME) PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME) docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose.yml
 
 .PHONY: build_image
 build_image:
 	docker build -f  docker/$(CONTAINERNAME)/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/$(CONTAINERNAME):dev --build-arg uid=1000 --build-arg user=$$USER
+	-t $(VENDORNAME)/$(PROJECTNAME)/$(CONTAINERNAME):dev --build-arg uid=1000 --build-arg user=$(USER)
 
 .PHONY: run
 run: compile
