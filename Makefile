@@ -6,7 +6,7 @@ COMPOSE=CONTAINERNAME=$(CONTAINERNAME) PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(V
 .PHONY: build_image
 build_image:
 	docker build -f  docker/$(CONTAINERNAME)/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/$(CONTAINERNAME):dev --build-arg uid=1000
+	-t $(VENDORNAME)/$(PROJECTNAME)/$(CONTAINERNAME):dev --build-arg uid=1000 --build-arg user=$user
 
 .PHONY: run
 run: compile
