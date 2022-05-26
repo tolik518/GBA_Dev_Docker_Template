@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void echo(char* text, int x, int y);
+
 //---------------------------------------------------------------------------------
 // Program entry point
 //---------------------------------------------------------------------------------
@@ -20,11 +22,16 @@ int main(void) {
 
 	consoleDemoInit();
 
-	// ansi escape sequence to set print co-ordinates
-	// /x1b[line;columnH
-	iprintf("\x1b[10;10HMoin Witti!\n");
-
 	while (1) {
+		echo("Moin!!!!", 10, 10);
 		VBlankIntrWait();
 	}
+}
+
+void echo(char* text, int x, int y){
+	char buf[256];
+	// ansi escape sequence to set print co-ordinates
+	// /x1b[line;columnH
+	snprintf(buf, sizeof(buf), "\x1b[%d;%dH%s\n",  x, y, text);
+	iprintf(buf);
 }
