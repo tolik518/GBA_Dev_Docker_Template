@@ -1,6 +1,6 @@
 version: '3.5'
 services:
-  dkp:
+  devkitpro:
     image: ${VENDORNAME}/${PROJECTNAME}/devkitpro:dev
     container_name: devkitpro
     volumes:

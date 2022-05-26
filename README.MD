@@ -4,6 +4,7 @@
 * clone repository
 * `sudo apt install visualboyadvance` to install a GBA emulator
 * build docker image with `make build`
+* optional: get include files with `make getincludes`
 * use `make compile` to compile the source
 * `make run` to run the compiled game
 
