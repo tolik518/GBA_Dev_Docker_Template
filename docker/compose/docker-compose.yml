@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   devkitpro:
-    image: ${VENDORNAME}/${PROJECTNAME}/devkitpro:dev
-    container_name: devkitpro
+    image: ${VENDORNAME}/${PROJECTNAME}/${CONTAINERNAME}:dev
+    container_name: ${CONTAINERNAME}
     volumes:
       - ./../../code:/developer
