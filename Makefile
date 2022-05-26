@@ -24,7 +24,7 @@ getincludes:
 
 .PHONY: cleanup
 cleanup:
-	rm -rf $$(pwd)/code/build; rm $$(pwd)/code/*.elf; rm $$(pwd)/code/*.gba
+	rm -rf $$(pwd)/code/build; rm $$(pwd)/out/*.elf; rm $$(pwd)/out/*.gba
 	
 .PHONY: deleteincludes
 deleteincludes:
