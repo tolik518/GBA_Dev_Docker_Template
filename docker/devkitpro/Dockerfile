@@ -1,18 +1,19 @@
 FROM devkitpro/devkita64
 
 ARG uid
+ARG user
 
 RUN dkp-pacman -S --noconfirm gba-dev && \
-    useradd -d /developer -m -u $uid developer && \
-    chown -R $uid /developer && \
+    useradd -d /$user -m -u $uid $user && \
+    chown -R $uid /$user && \
     mkdir /out &&  chown -R $uid /out
 
-ENV HOME=/developer
+ENV HOME=/$user
 ENV DEVKITPRO=/opt/devkitpro
 ENV DEVKITARM=/opt/devkitpro/devkitARM
 
-USER developer
-WORKDIR /developer
-VOLUME /developer
+USER $user
+WORKDIR /$user
+VOLUME /$user
 
 CMD make
