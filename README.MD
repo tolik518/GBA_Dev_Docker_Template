@@ -1,4 +1,4 @@
-# Hello GBA
+# Moin GBA
 
 #### How to Start Development (Linux)
 * clone repository
