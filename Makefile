@@ -10,7 +10,7 @@ build_image:
 
 .PHONY: run
 run: compile
-	VisualBoyAdvance --show-speed-detailed --video-3x code/developer.gba
+	VisualBoyAdvance --show-speed-detailed --video-3x out/game.gba
 
 .PHONY: compile
 compile:

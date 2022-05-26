@@ -5,3 +5,4 @@ services:
     container_name: ${CONTAINERNAME}
     volumes:
       - ./../../code:/developer
+      - ./../../out:/out

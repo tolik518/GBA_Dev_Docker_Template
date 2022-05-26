@@ -3,3 +3,5 @@ code/build/
 code/developer.elf
 code/developer.gba
 code/include
+out/game.elf
+out/game.gba

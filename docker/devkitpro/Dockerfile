@@ -4,7 +4,8 @@ ARG uid
 
 RUN dkp-pacman -S --noconfirm gba-dev && \
     useradd -d /developer -m -u $uid developer && \
-    chown -R $uid /developer
+    chown -R $uid /developer && \
+    mkdir /out &&  chown -R $uid /out
 
 ENV HOME=/developer
 ENV DEVKITPRO=/opt/devkitpro
