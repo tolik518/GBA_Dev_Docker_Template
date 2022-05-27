@@ -1,7 +1,7 @@
 VENDORNAME=returnnull
 PROJECTNAME=hellogba
 CONTAINERNAME=devkitpro
-USER=$USER
+USER= $(shell whoami)
 COMPOSE=USER=$(USER) CONTAINERNAME=$(CONTAINERNAME) PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME) docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose.yml
 
 .PHONY: build_image
@@ -21,11 +21,10 @@ compile:
 getincludes:
 	$(COMPOSE) up  
 	docker cp $(CONTAINERNAME):/opt/devkitpro/libgba/include $$(pwd)/code/
-	make cleanup
 
 .PHONY: cleanup
 cleanup:
-	rm -rf $$(pwd)/code/build; rm $$(pwd)/out/*.elf; rm $$(pwd)/out/*.gba
+	rm -rf $$(pwd)/code/build; rm $$(pwd)/out/*.elf; rm $$(pwd)/out/*.gba; rm $$(pwd)/out/*.sav
 	
 .PHONY: deleteincludes
 deleteincludes:

@@ -7,7 +7,7 @@ This is a template so you can start developing GameBoy Advance games without the
 * prerequisites: get [docker](https://www.docker.com/get-started/) and [docker-compose](https://docs.docker.com/compose/install/)
 * clone repository
 * go to the root of the repository
-* build docker image with `make build`
+* build docker image with `make build_image`
 * optional: get include files with `make getincludes` (`make deleteincludes` to remove them)
 * `sudo apt install visualboyadvance` to install a GBA emulator
 
