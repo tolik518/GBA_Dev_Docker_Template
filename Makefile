@@ -14,7 +14,7 @@ run: compile
 	VisualBoyAdvance --show-speed-detailed --video-3x out/game.gba
 
 .PHONY: compile
-compile:
+compile: cleanup
 	$(COMPOSE) up --exit-code-from $(CONTAINERNAME)
 
 .PHONY: getincludes
@@ -24,7 +24,7 @@ getincludes:
 
 .PHONY: cleanup
 cleanup:
-	rm -rf $$(pwd)/code/build; rm $$(pwd)/out/*.elf; rm $$(pwd)/out/*.gba; rm $$(pwd)/out/*.sav
+	rm -rf $$(pwd)/code/build; rm -f $$(pwd)/out/*.elf; rm -f $$(pwd)/out/*.gba; rm -f $$(pwd)/out/*.sav
 	
 .PHONY: deleteincludes
 deleteincludes:

@@ -1,9 +1,8 @@
-
-#include <gba_console.h>
-#include <gba_video.h>
-#include <gba_interrupt.h>
-#include <gba_systemcalls.h>
-#include <gba_input.h>
+#include <../include/gba_console.h>
+#include <../include/gba_video.h>
+#include <../include/gba_interrupt.h>
+#include <../include/gba_systemcalls.h>
+#include <../include/gba_input.h>
 #include <stdio.h>
 #include <stdlib.h>
 
