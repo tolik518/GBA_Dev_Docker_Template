@@ -10,8 +10,9 @@ build_image:
 	-t $(VENDORNAME)/$(PROJECTNAME)/$(CONTAINERNAME):dev --build-arg uid=1000 --build-arg user=$(USER)
 
 .PHONY: run
-run: compile
+run: compile	
 	VisualBoyAdvance --show-speed-detailed --video-3x out/game.gba
+#mgba -3 out/game.gba
 
 .PHONY: compile
 compile: cleanup
@@ -19,8 +20,9 @@ compile: cleanup
 
 .PHONY: getincludes
 getincludes:
-	$(COMPOSE) up  
+	$(COMPOSE) up 
 	docker cp $(CONTAINERNAME):/opt/devkitpro/libgba/include $$(pwd)/code/
+	docker cp $(CONTAINERNAME):/opt/devkitpro/libtonc/include $$(pwd)/code/
 
 .PHONY: cleanup
 cleanup:
@@ -29,12 +31,3 @@ cleanup:
 .PHONY: deleteincludes
 deleteincludes:
 	rm $$(pwd)/code/include/*.h
-
-.PHONY: stop
-stop:
-	$(COMPOSE) down --remove-orphans
-	docker ps
-
-.PHONY: logs
-logs:
-	$(COMPOSE) logs

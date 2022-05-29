@@ -1,36 +1,18 @@
-#include <../include/gba_console.h>
-#include <../include/gba_video.h>
-#include <../include/gba_interrupt.h>
-#include <../include/gba_systemcalls.h>
-#include <../include/gba_input.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <tonc.h>
 
-void echo(char* text, int x, int y);
-
-//---------------------------------------------------------------------------------
-// Program entry point
-//---------------------------------------------------------------------------------
 int main(void) {
-//---------------------------------------------------------------------------------
-	// the vblank interrupt must be enabled for VBlankIntrWait() to work
-	// since the default dispatcher handles the bios flags no vblank handler
-	// is required
-	irqInit();
-	irqEnable(IRQ_VBLANK);
 
-	consoleDemoInit();
+	REG_DISPCNT = DCNT_MODE0 | DCNT_BG0;
+
+	tte_init_chr4c_default(0, BG_CBB(0) | BG_SBB(31));
+	tte_set_pos(92, 68);
+	tte_write("Hello World!");
+
+	irq_init(NULL);
+	irq_enable(II_VBLANK);
 
 	while (1) {
-		echo("Moin!!!!", 10, 10);
 		VBlankIntrWait();
 	}
-}
 
-void echo(char* text, int x, int y){
-	char buf[256];
-	// ansi escape sequence to set print co-ordinates
-	// /x1b[line;columnH
-	snprintf(buf, sizeof(buf), "\x1b[%d;%dH%s\n",  x, y, text);
-	iprintf(buf);
 }
