@@ -1,18 +1,20 @@
 VENDORNAME=returnnull
 PROJECTNAME=hellogba
-CONTAINERNAME=devkitpro
+CONTAINERNAME=dkp_compiler
+DEBUGGERRNAME=dkp_debugger
 USER= $(shell whoami)
 COMPOSE=USER=$(USER) CONTAINERNAME=$(CONTAINERNAME) PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME) docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose.yml
 
 .PHONY: build_image
 build_image:
 	docker build -f  docker/$(CONTAINERNAME)/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/$(CONTAINERNAME):dev --build-arg uid=1000 --build-arg user=$(USER)
+	-t $(CONTAINERNAME):dev --build-arg uid=1000 --build-arg user=$(USER)
+#docker build -f  docker/$(DEBUGGERRNAME)/Dockerfile . \
+#-t $(DEBUGGERRNAME):dev
 
 .PHONY: run
 run: compile	
-	VisualBoyAdvance --show-speed-detailed --video-3x out/game.gba
-#mgba -3 out/game.gba
+	mgba-qt out/game.gba
 
 .PHONY: compile
 compile: cleanup

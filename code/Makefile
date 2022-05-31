@@ -37,9 +37,9 @@ MUSIC		:=
 #---------------------------------------------------------------------------------
 ARCH	:=	-mthumb -mthumb-interwork
 
-CFLAGS	:=	-g -Wall -O2 -mcpu=arm7tdmi -mtune=arm7tdmi $(ARCH)
+# CFLAGS	:=	-g -Wall -O2 -mcpu=arm7tdmi -mtune=arm7tdmi $(ARCH)
 # CFLAGS :=	-g -Wall -O3 -mcpu=arm7tdmi -mtune=arm7tdmi -fomit-frame-pointer -ffast-math $(ARCH)
-# CFLAGS := -gdwarf-2 -Wall -mcpu=arm7tdmi -mtune=arm7tdmi $(ARCH)
+CFLAGS := -gdwarf-2 -Wall -mcpu=arm7tdmi -mtune=arm7tdmi $(ARCH)
 # CFLAGS	:=	-g -O3 -Wall -Wno-switch -Wno-multichar $(ARCH)
 
 CFLAGS	+=	$(INCLUDE)

@@ -9,7 +9,7 @@ This is a template so you can start developing GameBoy Advance games without the
 * go to the root of the repository
 * build docker image with `make build_image`
 * optional: get include files with `make getincludes` (`make deleteincludes` to remove them)
-* `sudo apt install visualboyadvance` to install a GBA emulator
+* recommended: install [mGBA](mgba.appimage) 
 
 ## How to Start Development (on Linux)
 [please add this part]
@@ -23,4 +23,4 @@ This is a template so you can start developing GameBoy Advance games without the
 
 _____
 
-###### Repository originally maintained by [tolik518](https://github.com/tolik518). Dockerfile based on the Dockerfile from [Nathan Chowning](https://github.com/nchowning/dockerfiles/tree/master/switchdev). The code/Makefile template comes directly from [devkitPro](https://github.com/devkitPro/gba-examples).
+###### Repository originally maintained by [tolik518](https://github.com/tolik518). Dockerfile based on the Dockerfile from [Nathan Chowning](https://github.com/nchowning/dockerfiles/tree/master/switchdev). The Makefile is a mashup of the original from [devkitPro](https://github.com/devkitPro/gba-examples) and from [coranac](https://www.coranac.com/tonc/text/toc.htm).

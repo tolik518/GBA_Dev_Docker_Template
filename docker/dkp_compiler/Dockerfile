@@ -1,4 +1,4 @@
-FROM devkitpro/devkita64
+FROM devkitpro/devkita64 as dkp_compiler
 
 ARG uid
 ARG user
