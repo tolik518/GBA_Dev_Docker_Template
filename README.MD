@@ -11,7 +11,7 @@ This is a template so you can start developing GameBoy Advance games without the
 * optional: get include files with `make getincludes` (`make deleteincludes` to remove them)
 * recommended: install [mGBA](mgba.appimage) 
 
-## How to Start Development (on Linux)
+## How to Start Development (on Windows)
 [please add this part]
 
 ## How to Start the Game
