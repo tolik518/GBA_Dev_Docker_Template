@@ -4,5 +4,5 @@ services:
     image: ${VENDORNAME}/${PROJECTNAME}/${CONTAINERNAME}:dev
     container_name: ${CONTAINERNAME}
     volumes:
-      - ./../../code:/${USER}
-      - ./../../out:/out
+      - ${PWD}/code:/${USER}
+      - ${PWD}/out:/out
