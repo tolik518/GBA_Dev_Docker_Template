@@ -31,3 +31,13 @@ cleanup:
 .PHONY: deleteincludes
 deleteincludes:
 	rm $$(pwd)/code/include/*.h
+
+# ubuntu only 
+.PHONE: install_mgba
+install_mgba:
+	wget -q --spider https://s3.amazonaws.com/mgba/mGBA-build-latest-ubuntu64-$(shell lsb_release -sc).tar.xz &&\
+	wget -O /tmp/mgba.tar.xz https://s3.amazonaws.com/mgba/mGBA-build-latest-ubuntu64-$(shell lsb_release -sc).tar.xz &&\
+	mkdir /tmp/mgba ||\
+	tar -xf /tmp/mgba.tar.xz -C /tmp/mgba --strip-components 1 &&\
+	sudo dpkg -i /tmp/mgba/libmgba.deb &&\
+	sudo dpkg -i /tmp/mgba/mgba-qt.deb
