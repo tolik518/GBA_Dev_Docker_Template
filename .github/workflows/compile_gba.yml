@@ -1,0 +1,22 @@
+name: Compile GBA
+on: [push]
+jobs:
+ Compile-GBA:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: build docker image
+        run: make build_image
+
+      - name: build gba file
+        run: make compile
+
+      - name: Upload artifact
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: game.gba
+          path: out/game.gba
+          if-no-files-found: error
