@@ -1,4 +1,4 @@
-# GBA Developement Docker Template
+# ![icon](/.github/readme/docker_dev_template_v3_original.png)GBA Developement Docker Template
 
 ## What is this?
 This is a template so you can start developing GameBoy Advance games without the need of installing [devkitPro](https://devkitpro.org/) or any other dependencies. The only thing you'll need is [docker](https://www.docker.com/get-started/), which many developers already have and you'll need a [GameBoy Advance emulator](https://www.addictivetips.com/ubuntu-linux-tips/play-nintendo-gameboy-games-on-linux/#:~:text=The%20VisualBoy%20Advance%20Emulation%20tool,Color%20and%20the%20Gameboy%20Advance.) to fire up the game.
